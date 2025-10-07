@@ -5,9 +5,6 @@ hologram:
 
   # Delay in ticks
   remove-after-ticks: 40
-
-  # %type% - hit type (default hit/critical hit/trident)
-  # %damage% - заменяется на урон
   lines:
     - "%type%"
     - "%damage%"
