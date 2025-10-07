@@ -1,0 +1,18 @@
+name: HitIndicator
+version: 1.0
+main: org.klaydx.Main
+api-version: 1.21
+depend: [DecentHolograms]
+author: klaydx
+description: Shows hit damage via hologram
+
+commands:
+  hiti:
+    description: Главная команда HitIndicator
+    usage: /<command> [reload]
+    aliases: [hitindicator, hi]
+
+permissions:
+  hitindicator.reload:
+    description: Позволяет перезагружать конфиг
+    default: op

@@ -1,0 +1,19 @@
+# Hologram position settings
+hologram:
+  # Base height is Entity center height
+  height-offset: 0.4
+
+  # Delay in ticks
+  remove-after-ticks: 40
+
+  # %type% - hit type (default hit/critical hit/trident)
+  # %damage% - заменяется на урон
+  lines:
+    - "%type%"
+    - "%damage%"
+
+messages:
+  hit: "&eУдар"
+  critical: "&eКРИТ"
+  trident: "&eТРЕЗУБЕЦ"
+  damage: "&cУрон %damage% ❤"
