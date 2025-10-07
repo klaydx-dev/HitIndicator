@@ -8,11 +8,11 @@ description: Shows hit damage via hologram
 
 commands:
   hiti:
-    description: Главная команда HitIndicator
+    description: Main command of HitIndicator
     usage: /<command> [reload]
     aliases: [hitindicator, hi]
 
 permissions:
   hitindicator.reload:
-    description: Позволяет перезагружать конфиг
+    description: Allows you reload a plugin
     default: op
