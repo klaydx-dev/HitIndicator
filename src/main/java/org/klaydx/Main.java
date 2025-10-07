@@ -24,7 +24,7 @@ public class Main extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         if (getServer().getPluginManager().getPlugin("DecentHolograms") == null) {
-            getLogger().severe("DecentHolograms не найден! Плагин отключается.");
+            getLogger().severe("DecentHolograms not found! Disabling plugin...");
             getServer().getPluginManager().disablePlugin(this);
             return;
         }
@@ -34,12 +34,12 @@ public class Main extends JavaPlugin implements Listener {
         getCommand("hiti").setExecutor(new HitIndicatorCommand(this));
 
         getServer().getPluginManager().registerEvents(this, this);
-        getLogger().info("HitIndicator включен!");
+        getLogger().info("HitIndicator enabled!");
     }
 
     @Override
     public void onDisable() {
-        getLogger().info("HitIndicator выключен!");
+        getLogger().info("HitIndicator disabled!");
     }
 
     @EventHandler(priority = org.bukkit.event.EventPriority.MONITOR, ignoreCancelled = true)
@@ -91,16 +91,16 @@ public class Main extends JavaPlugin implements Listener {
         String hitType;
         if (isTrident) {
             hitType = ChatColor.translateAlternateColorCodes('&',
-                    getConfig().getString("messages.trident", "&eТРЕЗУБЕЦ"));
+                    getConfig().getString("messages.trident", "&b🔱 Trident"));
         } else if (isCrit) {
             hitType = ChatColor.translateAlternateColorCodes('&',
-                    getConfig().getString("messages.critical", "&eКРИТ"));
+                    getConfig().getString("messages.critical", "&c💥 CRIT"));
         } else {
             hitType = ChatColor.translateAlternateColorCodes('&',
-                    getConfig().getString("messages.hit", "&eУдар"));
+                    getConfig().getString("messages.hit", "&6⚔ Hit"));
         }
 
-        String damageFormat = getConfig().getString("messages.damage", "&cУрон %damage% ❤");
+        String damageFormat = getConfig().getString("messages.damage", "&4❤ %damage%");
         String damageText = ChatColor.translateAlternateColorCodes('&',
                 damageFormat.replace("%damage%", String.format("%.1f", damage)));
 
@@ -143,26 +143,26 @@ public class Main extends JavaPlugin implements Listener {
             if (args.length == 0) {
                 sender.sendMessage(ChatColor.YELLOW + "━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
                 sender.sendMessage(ChatColor.GOLD + "HitIndicator " + ChatColor.GRAY + "v" + plugin.getDescription().getVersion());
-                sender.sendMessage(ChatColor.GRAY + "Автор: " + ChatColor.WHITE + "klaydx");
+                sender.sendMessage(ChatColor.GRAY + "Author: " + ChatColor.WHITE + "klaydx");
                 sender.sendMessage("");
-                sender.sendMessage(ChatColor.YELLOW + "Команды:");
-                sender.sendMessage(ChatColor.GOLD + "/hiti reload " + ChatColor.GRAY + "- Перезагрузить конфиг");
+                sender.sendMessage(ChatColor.YELLOW + "Commands:");
+                sender.sendMessage(ChatColor.GOLD + "/hiti reload " + ChatColor.GRAY + "- Reload config");
                 sender.sendMessage(ChatColor.YELLOW + "━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
                 return true;
             }
 
             if (args[0].equalsIgnoreCase("reload")) {
                 if (!sender.hasPermission("hitindicator.reload")) {
-                    sender.sendMessage(ChatColor.RED + "У вас нет прав!");
+                    sender.sendMessage(ChatColor.RED + "You dont have permission to do this!");
                     return true;
                 }
 
                 plugin.reloadConfig();
-                sender.sendMessage(ChatColor.GREEN + "✓ Конфиг перезагружен!");
+                sender.sendMessage(ChatColor.GREEN + "✓ Config reloaded!");
                 return true;
             }
 
-            sender.sendMessage(ChatColor.RED + "Неизвестная команда! Используйте: /hiti reload");
+            sender.sendMessage(ChatColor.RED + "Unknown command! Use: /hiti reload");
             return true;
         }
     }
