@@ -13,7 +13,7 @@ hologram:
     - "%damage%"
 
 messages:
-  hit: "&eУдар"
-  critical: "&eКРИТ"
-  trident: "&eТРЕЗУБЕЦ"
-  damage: "&cУрон %damage% ❤"
+  hit: "&6⚔ Hit"
+  critical: "&c💥 CRIT"
+  trident: "&b🔱 Trident"
+  damage: "&4❤ %damage%"
